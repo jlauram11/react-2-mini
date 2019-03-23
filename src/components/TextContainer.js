@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
 export default class TextContainer extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       text: ''
     }
   }
 
-  updateText(e) {
+  updateText = (e) => {
     this.setState({
       text: e.target.value
     })
@@ -18,7 +18,7 @@ export default class TextContainer extends Component {
     return (
       <div className="textContainer">
         <textarea 
-          // style={  }
+          style={ {fontFamily: this.props.fontFamily, fontSize: this.props.fontSize, color: this.props.fontColor} }
           onChange={this.updateText}
           value={this.state.text} 
           placeholder='Start typing your thoughts here!'
